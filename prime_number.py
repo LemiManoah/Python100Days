@@ -12,7 +12,7 @@ def primeNumber(number):
         print("its not a prime number")
             
             
-primeNumber(number = n)
+primeNumber(n)
 
 
 
