@@ -23,6 +23,17 @@
 #     #if the target is not found in the array, return -1
 #     else:
 #         return -1
+
+#test array
+# arr = [ 2, 3, 4, 10, 40 ]
+# target = 10
+#function call
+# result = binary_search(arr, 0, len(arr)-1, target);
+
+# if result != -1:
+#     print(f"the target value is present at index: {result}");
+# else:
+#     print("the target value index does not exist in the list");
     
  
  
@@ -30,24 +41,45 @@
  # It returns index of x in given array arr if present,
 # else returns -1
 def binary_search(arr, target):
-    low, mid = 0;
+    #low is the leftmost index of array
+    low= 0;
+    #high is the rightmost index of array
     high = len(arr)-1;
     
+    #initialize mid as the middle index of array
+    mid= 0;
+    
+    #while low is less than or equal to high
     while low <= high:
         mid = (low + high)//2
+    
+        #check if target is less than target
+        if arr[mid] > target:
+            high = mid - 1;
         
+        #check if target is more than target
+        elif arr[mid] < target:
+            low = mid + 1;
+        
+        #target is present at mid
+        else:
+            return mid;
+        
+    return -1;
       
 
-#test array
+# Test array
 arr = [ 2, 3, 4, 10, 40 ]
 target = 10
-
-#function call
-result = binary_search(arr, 0, len(arr)-1, target);
-
+ 
+# Function call
+result = binary_search(arr, target)
+ 
 if result != -1:
-    print(f"the target value is present at index: {result}");
+    print("Element is present at index", str(result))
 else:
-    print("the target value index does not exist in the list");
+    print("Element is not present in array")
+
+
             
    
